@@ -10,9 +10,10 @@
         <img src="/static/img/home.jpg" alt="Imagen de bienvenida">
         <p>Este sitio permite consultar tus datos personales, familiares y de interés como alumno.</p>
 
-        @if (ViewBag.usuarioNom != null){
-            <p>Usuario logueado: <strong>@ViewBag.usuarioNom</strong></p>
-            <a href="@Url.Action("Desloguearse", "Index")">Desloguearse</a>
+        @if (ViewBag.usuario != null){
+            <p>Usuario logueado: <strong>@ViewBag.usuario.Nombre</strong></p>
+            <a href="@Url.Action("Desloguearse")">Desloguearse</a>
+            <a href="@Url.Action("infoDatosPersonales")">Continuar</a>
         }
         else{
             <a href="@Url.Action("SignIn")">Iniciar sesión</a>

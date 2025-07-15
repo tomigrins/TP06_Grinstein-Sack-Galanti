@@ -13,11 +13,23 @@ public class HomeController : Controller
         _logger = logger;
     }
     public IActionResult Index(){
-        Usuario usuario = new Usuario();
-        ViewBag.usuarioNom = usuario.Nombre;
         return View();
     }
+    public IActionResult ValidarUsuario(string usuario, string clave){
+        int id = BD.Login(usuario, clave);
+
+        if(id == 0){
+            ViewBag.segundoIntento = true;
+            return View ("SignIn");
+        }
+        else{
+            HttpContext.Session.SetString("usuario", Objetos.ObjectToString(BD.GetUsuario(id)));
+            ViewBag.usuario = BD.GetUsuario(id);
+            return View("Index");
+        }
+    }
     public IActionResult SignIn(){
+        ViewBag.segundoIntento = false;
         return View();
     }
     // public IActionResult ValidarCuenta(string Email, string Contraseña){
@@ -25,9 +37,8 @@ public class HomeController : Controller
     //     new Usuari
     // }
     public IActionResult Desloguearse(){
-        Usuario usuario = null;
-        ViewBag.usuarioNom = usuario.Nombre;
-        return View();
+        HttpContext.Session.Remove("usuario");
+        return View("Index");
     }
 
 
