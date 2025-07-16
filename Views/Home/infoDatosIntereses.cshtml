@@ -1,18 +1,22 @@
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Datos de Interés</title>
-</head>
-<body>
-    <h1>Datos de interés de {{ alumno.nombre }}</h1>
+    @foreach(DatoFamiliar dato in ViewBag.intereses){
+        if (dato.TipoInteres == 1)
+        {
+            <h1>Hobbie: @dato.Interes</h1>
+        }
+        else if (dato.TipoInteres == 2)
+        {
+            <h1>Serie: @dato.Interes</h1>
+        }
+        else if (dato.TipoInteres == 3)
+        {
+            <h1>Amigo: @dato.Interes</h1>
+        }
+        else if (dato.TipoInteres == 4)
+        {
+            <h1>Gusto: @dato.Interes</h1>
+        }
+    } 
 
-    <ul>
-        <li>Materias favoritas: {{ alumno.materias_favoritas }}</li>
-        <li>Actividades extracurriculares: {{ alumno.actividades }}</li>
-        <li>Observaciones: {{ alumno.observaciones }}</li>
-    </ul>
+    <a href="@Url.Action("Index")">Volver al inicio</a>
 
-    <a href="/perfil">Volver al perfil</a>
-</body>
-</html>

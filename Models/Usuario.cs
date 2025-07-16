@@ -1,6 +1,6 @@
 public class Usuario{
-    int Id {get;  set;}
-    public string Nombre;
+    int Id {get; set;}
+    public string Nombre {get;  set;}
     string Apellido{ get;  set; }
     string Email {get;  set;}
     string Contraseña {get;  set;}

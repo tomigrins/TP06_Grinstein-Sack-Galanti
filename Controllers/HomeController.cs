@@ -32,44 +32,23 @@ public class HomeController : Controller
         ViewBag.segundoIntento = false;
         return View();
     }
-    // public IActionResult ValidarCuenta(string Email, string Contraseña){
-    //     int idUsuario = BD.Login(Email, Contraseña);
-    //     new Usuari
-    // }
     public IActionResult Desloguearse(){
         HttpContext.Session.Remove("usuario");
         return View("Index");
     }
-
-
-
-
-    // public IActionResult Index()
-    // {
-    //     Grupo.InicializarGrupo();
-    //     ViewBag.Integrantes = Grupo.Integrantes;
-    //     return View();
-    // }
-    // public IActionResult SelectIntegrante(int dni){
-    //     if(Grupo.Integrantes.ContainsKey(dni)){
-    //     ViewBag.DatosPersonales = Grupo.Integrantes[dni].DatosPersonales;
-    //     ViewBag.DNI = dni;
-    //     }
-    //     return View("infoDatosPersonales"); 
-    // }
-    // public IActionResult MostrarDatosFamiliares(int dni){
-    //     if(Grupo.Integrantes.ContainsKey(dni)){
-    //     ViewBag.DatosPersonales = Grupo.Integrantes[dni].DatosPersonales;
-    //     ViewBag.DatosFamiliares = Grupo.Integrantes[dni].DatosFamiliares;
-    //     }
-    //     return View("infoDatosFamiliares");
-    // }
-    // public IActionResult MostrarDatosInteres(int dni){
-    //     if(Grupo.Integrantes.ContainsKey(dni)){
-    //     ViewBag.DatosPersonales = Grupo.Integrantes[dni].DatosPersonales;
-    //     ViewBag.DatosIntereses = Grupo.Integrantes[dni].DatosIntereses;
-    //     }
-    //     return View("infoDatosIntereses");
-    // }
+    public IActionResult DatoFamiliar(){
+        Usuario usuario = Objetos.StringToObject<Usuario>(HttpContext.Session.GetString("usuario"));
+        int id = usuario.Id;
+        List<DatoFamiliar> familiares = BD.GetDatoFamiliar(id);
+        ViewBag.familiares = familiares;
+        return View("infoDatosFamiliar");
+    }
+    public IActionResult DatoInteres(){
+        Usuario usuario = Objetos.StringToObject<Usuario>(HttpContext.Session.GetString("usuario"));
+        int id = usuario.Id;
+        List<DatoInteres> intereses = BD.GetDatoInteres(id);
+        ViewBag.intereses = intereses;
+        return View("infoDatosIntereses");
+    }
 
 }

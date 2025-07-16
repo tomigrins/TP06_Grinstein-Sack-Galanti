@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Datos Familiares</title>
-</head>
-<body>
-    <h1>Datos familiares de {{ alumno.nombre }}</h1>
 
-    <ul>
-        <li>Nombre del padre: {{ alumno.padre }}</li>
-        <li>Nombre de la madre: {{ alumno.madre }}</li>
-        <li>Teléfono de contacto: {{ alumno.telefono_familiar }}</li>
-        <li>Domicilio familiar: {{ alumno.domicilio }}</li>
-    </ul>
+    @foreach(DatoFamiliar dato in @ViewBag.familiares){
+        <h1>Nombre: @dato.Nombre</h1>
+        <h1>Apellido: @dato.Apellido</h1>
+        <h1>Parentesco: @dato.Parentesco </h1>
+        <h1>Descripción: @dato.Descripción </h1>
+    } 
 
-    <a href="/perfil">Volver al perfil</a>
-</body>
-</html>
+    <a href="@Url.Action("Index")">Volver al inicio</a>
+
