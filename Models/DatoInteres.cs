@@ -1,7 +1,7 @@
 namespace TP02.Models;
 public class DatoInteres{
-    int Id{ get;  set; }
-    int IdUsuario{ get;  set; }
-    int TipoInteres{ get;  set; }
-    string Interes { get; set; }
+    public int Id{ get;  set; }
+    public int IdUsuario{ get;  set; }
+    public int TipoInteres{ get;  set; }
+    public string Interes { get; set; }
 }

@@ -26,15 +26,15 @@ public static class BD
         List<DatoFamiliar> datoFamiliar = new List<DatoFamiliar>();
         using(SqlConnection connection = new SqlConnection(_connectionString)){
             string query = "SELECT * FROM DatoFamiliar WHERE IdUsuario = @id";
-            datoFamiliar = connection.Query<DatoFamiliar>(query).ToList();
-        }
+            datoFamiliar = connection.Query<DatoFamiliar>(query, new {id}).ToList();
+        }   
         return datoFamiliar; //Si no existe devuelve la lista vacia
     }
     public static List<DatoInteres> GetDatoInteres(int id){
         List<DatoInteres> datoInteres = new List<DatoInteres>();
         using(SqlConnection connection = new SqlConnection(_connectionString)){
-            string query = "SELECT * FROM DatoFamiliar WHERE IdUsuario = @id";
-            datoInteres = connection.Query<DatoInteres>(query).ToList();
+            string query = "SELECT * FROM DatoInteres WHERE IdUsuario = @id";
+            datoInteres = connection.Query<DatoInteres>(query, new {id}).ToList();
         }
         return datoInteres; //Lo mismo que GetDatoFamiliar
     }

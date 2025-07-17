@@ -41,7 +41,7 @@ public class HomeController : Controller
         int id = usuario.Id;
         List<DatoFamiliar> familiares = BD.GetDatoFamiliar(id);
         ViewBag.familiares = familiares;
-        return View("infoDatosFamiliar");
+        return View("infoDatosFamiliares");
     }
     public IActionResult DatoInteres(){
         Usuario usuario = Objetos.StringToObject<Usuario>(HttpContext.Session.GetString("usuario"));
@@ -49,6 +49,25 @@ public class HomeController : Controller
         List<DatoInteres> intereses = BD.GetDatoInteres(id);
         ViewBag.intereses = intereses;
         return View("infoDatosIntereses");
+    }
+    public IActionResult VolverMenu(string proxView){
+        Usuario usuario = Objetos.StringToObject<Usuario>(HttpContext.Session.GetString("usuario"));
+        ViewBag.usuario = usuario;
+        switch (proxView){
+            case "Index":
+                return View(proxView);
+            case "infoDatosPersonales":
+                return RedirectToAction("DatoPersonales");
+            default:
+                return View("Index");
+        }
+        
+    }
+    public IActionResult DatoPersonales(){
+        Usuario usuario = Objetos.StringToObject<Usuario>(HttpContext.Session.GetString("usuario"));
+        ViewBag.DatosUsuario = usuario;
+        ViewBag.Edad = usuario.ObtenerEdad();
+        return View("infoDatosPersonales");
     }
 
 }

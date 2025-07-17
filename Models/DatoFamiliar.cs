@@ -1,10 +1,10 @@
 namespace TP02.Models;
 
 public class DatoFamiliar {
-    int Id{ get;  set; }
-    int IdUsuario { get;  set; }
-    string Nombre { get;  set; }
-    string Apellido{ get;  set; }
-    string Parentesco{ get;  set; }
-    string Descripción{ get;  set; }
+    public int Id{ get;  set; }
+    public int IdUsuario { get;  set; }
+    public string Nombre { get;  set; }
+    public string Apellido{ get;  set; }
+    public string Parentesco{ get;  set; }
+    public string Descripcion{ get;  set; }
 }

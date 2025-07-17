@@ -1,6 +1,7 @@
 
-    @foreach(DatoFamiliar dato in ViewBag.intereses){
-        if (dato.TipoInteres == 1)
+@foreach(DatoInteres dato in ViewBag.intereses){
+    <div class="container">
+        @if (dato.TipoInteres == 1)
         {
             <h1>Hobbie: @dato.Interes</h1>
         }
@@ -16,7 +17,9 @@
         {
             <h1>Gusto: @dato.Interes</h1>
         }
-    } 
+    </div>
+} 
+<a href='@Url.Action("VolverMenu", new {proxView = "Index"})'>Volver al menu</a>
+<a href='@Url.Action("VolverMenu", new {proxView = "infoDatosPersonales"})'>Volver al perfil</a>
 
-    <a href="@Url.Action("Index")">Volver al inicio</a>
 

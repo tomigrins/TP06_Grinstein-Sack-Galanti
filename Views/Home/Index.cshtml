@@ -6,14 +6,14 @@
 </head>
 <body>
     <div class="container">
-        <h1>Bienvenido al sitio del alumno</h1>
-        <img src="/static/img/home.jpg" alt="Imagen de bienvenida">
+        <h1>Bienvenido al sitio de 4IB</h1>
+        <img src="/Imagenes/Leo.png" alt="Imagen de bienvenida">
         <p>Este sitio permite consultar tus datos personales, familiares y de interés como alumno.</p>
 
         @if (ViewBag.usuario != null){
             <p>Usuario logueado: <strong>@ViewBag.usuario.Nombre</strong></p>
             <a href="@Url.Action("Desloguearse")">Desloguearse</a>
-            <a href="@Url.Action("infoDatosPersonales")">Continuar</a>
+            <a href="@Url.Action("DatoPersonales")">Ver perfil</a>
         }
         else{
             <a href="@Url.Action("SignIn")">Iniciar sesión</a>

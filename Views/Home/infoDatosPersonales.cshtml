@@ -1,0 +1,10 @@
+<div class="container">
+    <img src="@ViewBag.DatosUsuario.Foto" alt="Foto Perfil">
+    <h1>Nombre: @ViewBag.DatosUsuario.Nombre</h1>
+    <h1>Apellido: @ViewBag.DatosUsuario.Apellido</h1>
+    <h1>Edad: @ViewBag.Edad </h1>
+
+    <a href="@Url.Action("DatoInteres")">Ver datos de intereses</a>
+    <a href="@Url.Action("DatoFamiliar")">Ver datos familiares</a>
+    <a href='@Url.Action("VolverMenu", new {proxView = "Index"})'>Volver al menu</a>
+</div>

@@ -1,10 +1,12 @@
 
     @foreach(DatoFamiliar dato in @ViewBag.familiares){
-        <h1>Nombre: @dato.Nombre</h1>
-        <h1>Apellido: @dato.Apellido</h1>
-        <h1>Parentesco: @dato.Parentesco </h1>
-        <h1>Descripción: @dato.Descripción </h1>
+        <div class="container">
+            <h1>Nombre: @dato.Nombre</h1>
+            <h1>Apellido: @dato.Apellido</h1>
+            <h1>Parentesco: @dato.Parentesco </h1>
+            <h1>Descripción: @dato.Descripcion </h1>
+        </div>
     } 
-
-    <a href="@Url.Action("Index")">Volver al inicio</a>
+<a href='@Url.Action("VolverMenu", new {proxView = "Index"})'>Volver al menu</a>
+<a href='@Url.Action("VolverMenu", new {proxView = "infoDatosPersonales"})'>Volver al perfil</a>
 

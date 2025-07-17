@@ -1,12 +1,12 @@
 public class Usuario{
-    int Id {get; set;}
+    public int Id {get; set;}
     public string Nombre {get;  set;}
-    string Apellido{ get;  set; }
-    string Email {get;  set;}
-    string Contraseña {get;  set;}
-    DateTime FechaNacimiento { get;  set; }
-    string Foto {get;  set;}
-    int ObtenerEdad(){
+    public string Apellido{ get;  set; }
+    public string Email {get;  set;}
+    public string Contraseña {get;  set;}
+    public DateTime FechaNacimiento { get;  set; }
+    public string Foto {get;  set;}
+    public int ObtenerEdad(){
         var hoy = DateTime.Today;
         int edad = hoy.Year - FechaNacimiento.Year;
 
